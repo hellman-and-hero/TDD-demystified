@@ -29,9 +29,9 @@ public class RgbLedRing {
 					color = GREEN;
 				} else if (i < ledCount / AMOUNT_OF_COLORS * 2) {
 					color = YELLOW;
-				} else if (i < ledCount / AMOUNT_OF_COLORS * 3) {
+				} else {
 					color = RED;
-				}
+				} 
 			} 
 			else {
 				color = OFF;
