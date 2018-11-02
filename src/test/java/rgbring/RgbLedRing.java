@@ -8,14 +8,10 @@ public class RgbLedRing {
 	}
 
 	public RgbLedRing(int ledCount) {
-		setLeds(new boolean[ledCount]);
+		this.leds = new boolean[ledCount];
 	}
 
 	public boolean[] getLeds() {
 		return leds;
-	}
-
-	public void setLeds(boolean[] leds) {
-		this.leds = leds;
 	}
 }
