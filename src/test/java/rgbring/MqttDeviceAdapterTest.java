@@ -28,12 +28,12 @@ public class MqttDeviceAdapterTest {
 
 	
 	@Before
-	public void setup() {
+	public void setup() throws MqttSecurityException, MqttException {
 		createReceiver4Test("someLed/rgb/");
 	}
 	
 	@Test
-	public void test() throws MqttException, InterruptedException {
+	public void test() throws MqttSecurityException, MqttException, InterruptedException {
 		// TODO do not depend on eclipse infrastructure
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(createMqttClient());
 		sut.setLedColor(42, "#123456");
