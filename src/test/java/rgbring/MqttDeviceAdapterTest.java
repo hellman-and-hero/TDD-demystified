@@ -15,8 +15,8 @@ public class MqttDeviceAdapterTest {
 		IMqttClient client = new MqttClient("tcp://iot.eclipse.org", "someledclient");
 		client.connect();
 		IMqttClient receivingClient = new MqttClient("tcp://iot.eclipse.org", "someOtherClient");
-		receivingClient.subscribe("someLed/rgb/#");
 		receivingClient.connect();
+		receivingClient.subscribe("someLed/rgb/#");
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(client);
 
 	}
