@@ -85,7 +85,6 @@ public class RgbLedRingTest {
 			leds[1] = level > 25;
 			leds[2] = level > 50;
 			leds[3] = level > 75;
-			return;
 		}
 		if (leds.length == 2) {
 			leds[0] = level > 0;
