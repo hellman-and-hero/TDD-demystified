@@ -5,7 +5,7 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 
-public class MqttDeviceAdapter {
+public class MqttDeviceAdapter implements DeviceAdapter {
 
 	public static final String OFF = "#000000";
 	public static final String ON = "#ffffff";
@@ -17,6 +17,9 @@ public class MqttDeviceAdapter {
 		this.mqttClient = mqttClient;
 	}
 
+	/* (non-Javadoc)
+	 * @see rgbring.DeviceAdapter#setLedState(java.lang.Object, int, boolean)
+	 */
 	public void setLedState(Object rgbLedRing, int ledNum, boolean ledState) {
 		try {
 			String payload = ledState ? ON : OFF;
