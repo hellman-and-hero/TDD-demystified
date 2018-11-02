@@ -2,6 +2,7 @@ package rgbring;
 
 public class RgbLedRing {
 
+	private static final int AMOUNT_OF_COLORS = 3;
 	private static final String GREEN = "#00ff00";
 	private static final String OFF = "#000000";
 	private static final String ON = "#ffffff";
@@ -21,7 +22,7 @@ public class RgbLedRing {
 			boolean ledState = level > MAX_LEVEL / size() * i;
 
 			if (ledCount == 6) {
-				String color = i < 2 ? GREEN : OFF;
+				String color = i < ledCount / AMOUNT_OF_COLORS ? GREEN : OFF;
 				deviceAdapter.setLedColor(i, color);
 			} else {
 				deviceAdapter.setLedColor(i, ledState ? ON : OFF);
