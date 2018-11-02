@@ -19,10 +19,9 @@ import rgbring.IMqttClientForTest.TopicAndMessage;
 public class MqttDeviceAdapterTest {
 
 	protected TopicAndMessage received;
-	
+
 	@Rule
 	public Timeout timeout = Timeout.seconds(5);
-
 
 	@Test
 	public void test() throws MqttException, InterruptedException {
