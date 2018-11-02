@@ -4,12 +4,13 @@ import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
+import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 
 public class MqttDeviceAdapter implements DeviceAdapter {
 
 	private final IMqttClient mqttClient;
 
-	public MqttDeviceAdapter(IMqttClient mqttClient) {
+	public MqttDeviceAdapter(IMqttClient mqttClient) throws Exception {
 		mqttClient.connect();
 		this.mqttClient = mqttClient;
 	}
