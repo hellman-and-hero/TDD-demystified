@@ -88,7 +88,7 @@ public class RgbLedRingTest {
 		ring.setLevel(33);
 		assertStates("#00ff00", "#00ff00", OFF, OFF, OFF, OFF);
 	}
-	
+
 	@Ignore
 	@Test
 	public void givenRingWith6ColoredLedsShouldEnlightAllLedsWhenLevelIs100() throws Exception {
@@ -99,10 +99,7 @@ public class RgbLedRingTest {
 
 	private void assertStates(String... colors) {
 		for (int i = 0; i < ring.size(); i++) {
-			TopicAndMessage topicAndMessage = mqttClient.getTopicAndMessages().get(i);
-			assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
-			String color = colors[i];
-			assertThat(topicAndMessage.getPayload(), is(color));
+			assertColor(i, colors[i]);
 		}
 
 	}
@@ -112,8 +109,15 @@ public class RgbLedRingTest {
 			TopicAndMessage topicAndMessage = mqttClient.getTopicAndMessages().get(i);
 			assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
 			String expected = states[i] ? ON : OFF;
+			assertColor(i, expected);
 			assertThat(topicAndMessage.getPayload(), is(expected));
 		}
+	}
+
+	private void assertColor(int i, String color) {
+		TopicAndMessage topicAndMessage = mqttClient.getTopicAndMessages().get(i);
+		assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
+		assertThat(topicAndMessage.getPayload(), is(color));
 	}
 
 	private void givenLeds(int ledCount) throws Exception {
