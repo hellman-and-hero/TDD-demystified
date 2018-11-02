@@ -80,10 +80,8 @@ public class RgbLedRingTest {
 	}
 
 	private void setLevel(int level) {
-		if (leds.length == 4) {
-			for (int i = 0; i < leds.length; i++) {
-				leds[i] = level > 100 / leds.length * i;
-			}
+		for (int i = 0; i < leds.length; i++) {
+			leds[i] = level > 100 / leds.length * i;
 		}
 		if (leds.length == 2) {
 			leds[0] = level > 100 / leds.length * 0;
