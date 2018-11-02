@@ -4,11 +4,10 @@ import org.eclipse.paho.client.mqttv3.IMqttClient;
 
 public class DeviceAdapter {
 
-	private IMqttClient mqttClient;
+	private final IMqttClient mqttClient;
 
 	public DeviceAdapter(IMqttClient mqttClient) {
 		this.mqttClient = mqttClient;
-		// TODO Auto-generated constructor stub
 	}
 
 }
