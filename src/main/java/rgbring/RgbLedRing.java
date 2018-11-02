@@ -7,8 +7,6 @@ public class RgbLedRing {
 	private static final int AMOUNT_OF_COLORS = 3;
 	private static final String GREEN = "#00ff00";
 	private static final String OFF = "#000000";
-	private static final String ON = "#ffffff";
-
 	private static final int MAX_LEVEL = 100;
 
 	private final int ledCount;
