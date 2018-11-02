@@ -270,7 +270,7 @@ public class RgbLedRingTest {
 		givenLeds(2);
 		ring.setLevel(51);
 		topicAndMessages.clear();
-		
+
 		ring.setLevel(0);
 		assertStates(false, false);
 	}
