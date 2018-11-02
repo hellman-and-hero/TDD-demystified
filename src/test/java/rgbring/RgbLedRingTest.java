@@ -14,6 +14,7 @@ public class RgbLedRingTest {
 
 
 	private RgbLedRing ring;
+	private IMqttClientForTest mqttClient = new IMqttClientForTest();
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
@@ -91,7 +92,6 @@ public class RgbLedRingTest {
 	}
 
 	private void givenLeds(int ledCount) {
-		IMqttClientForTest mqttClient = new IMqttClientForTest();
 		this.ring = new RgbLedRing(ledCount, new MqttDeviceAdapter(mqttClient));
 	}
 
