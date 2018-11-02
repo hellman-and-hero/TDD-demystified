@@ -36,7 +36,7 @@ public class MqttDeviceAdapterTest {
 	}
 
 	private TopicAndMessage receivingCLientHasReceived() {
-		return new TopicAndMessage("", "".getBytes());
+		return received;
 	}
 
 	private void createReceiver() throws MqttException, MqttSecurityException {
