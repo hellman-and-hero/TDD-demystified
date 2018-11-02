@@ -34,6 +34,10 @@ public class RgbLedRingTest {
 		public String getPayload() {
 			return payload;
 		}
+		
+		public String getTopic() {
+			return topic;
+		}
 
 	}
 
