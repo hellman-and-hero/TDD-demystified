@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class RgbLedRingTest {
 
-	private RgbLedRing ring = new RgbLedRing();
+	private RgbLedRing ring;
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
