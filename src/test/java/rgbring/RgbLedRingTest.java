@@ -9,6 +9,8 @@ import org.junit.Test;
 public class RgbLedRingTest {
 
 	private boolean led1, led2, led3, led4;
+	private boolean[] leds = boolean[2];
+	
 	private int ledCount = 2;
 
 	@Test
