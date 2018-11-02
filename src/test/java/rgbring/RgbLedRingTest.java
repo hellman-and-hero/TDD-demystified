@@ -19,7 +19,13 @@ import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 import org.eclipse.paho.client.mqttv3.MqttTopic;
 import org.junit.Test;
 
+import rgbring.RgbLedRingTest.TopicAndMessage;
+
 public class RgbLedRingTest {
+
+	private static class TopicAndMessage {
+
+	}
 
 	private final class IMqttClientForTest implements IMqttClient {
 		public void unsubscribe(String[] topicFilters) throws MqttException {
@@ -220,6 +226,7 @@ public class RgbLedRingTest {
 	private RgbLedRing ring;
 	private IMqttClient client;
 	private final List<String> messageToSend = new ArrayList<String>();
+	private final List<TopicAndMessage> topicAndMessages = new ArrayList<TopicAndMessage>();
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
