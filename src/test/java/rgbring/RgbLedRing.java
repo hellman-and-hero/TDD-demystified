@@ -29,10 +29,6 @@ public class RgbLedRing {
 		}
 	}
 
-	public boolean getLed(int num) {
-		return leds[num];
-	}
-
 	public int size() {
 		return leds.length;
 	}
