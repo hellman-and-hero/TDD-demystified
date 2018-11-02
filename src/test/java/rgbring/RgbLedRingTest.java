@@ -301,7 +301,7 @@ public class RgbLedRingTest {
 			void setLevel(int level) {
 				super.setLevel(level);
 				try {
-					client.publish("someLed/rgb/" + "0", new MqttMessage("#fffffff".getBytes()));
+					client.publish("someLed/rgb/" + "0", new MqttMessage("#ffffff".getBytes()));
 				} catch (MqttPersistenceException e) {
 					throw new RuntimeException(e);
 				} catch (MqttException e) {
