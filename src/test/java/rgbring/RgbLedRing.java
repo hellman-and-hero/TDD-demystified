@@ -14,7 +14,7 @@ public class RgbLedRing {
 
 	void setLevel(int level) {
 		for (int i = 0; i < getLeds().length; i++) {
-			leds[i] = level > 100 / getLeds().length * i;
+			leds[i] = level > 100 / leds.length * i;
 		}
 	}
 }
