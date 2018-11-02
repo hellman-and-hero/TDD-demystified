@@ -55,28 +55,28 @@ public class RgbLedRingTest {
 	}
 
 	@Test
-	public void givenRingWith4LedsShouldEnlightLedOneWhenLevelIsLessThan26() {
+	public void givenRingWith4LedsShouldEnlightLedOneWhenLevelIsLessThan26() throws Exception {
 		givenLeds(4);
 		ring.setLevel(25);
 		assertStates(true, false, false, false);
 	}
 
 	@Test
-	public void givenRingWith4LedsShouldEnlightLedOneAndTwoWhenLevelIsMoreThan25() {
+	public void givenRingWith4LedsShouldEnlightLedOneAndTwoWhenLevelIsMoreThan25() throws Exception {
 		givenLeds(4);
 		ring.setLevel(26);
 		assertStates(true, true, false, false);
 	}
 
 	@Test
-	public void givenRingWith4LedsShouldEnlightLedOneAndTwoAndThreeWhenLevelIsMoreThan50() {
+	public void givenRingWith4LedsShouldEnlightLedOneAndTwoAndThreeWhenLevelIsMoreThan50() throws Exception {
 		givenLeds(4);
 		ring.setLevel(51);
 		assertStates(true, true, true, false);
 	}
 
 	@Test
-	public void givenRingWith4LedsShouldEnlightLedOneAndTwoAndThreeAndFourWhenLevelIsMoreThan75() {
+	public void givenRingWith4LedsShouldEnlightLedOneAndTwoAndThreeAndFourWhenLevelIsMoreThan75() throws Exception {
 		givenLeds(4);
 		ring.setLevel(76);
 		assertStates(true, true, true, true);
@@ -91,7 +91,7 @@ public class RgbLedRingTest {
 		}
 	}
 
-	private void givenLeds(int ledCount) {
+	private void givenLeds(int ledCount) throws Exception {
 		this.ring = new RgbLedRing(ledCount, new MqttDeviceAdapter(mqttClient));
 	}
 
