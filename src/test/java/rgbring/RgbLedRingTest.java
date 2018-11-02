@@ -18,24 +18,28 @@ public class RgbLedRingTest {
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightLedOneWHenLevelMoreThanZero() {
+		givenLeds(2);
 		setLevel(1);
 		assertStates(true, false);
 	}
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightLedOneWHenLevelIsLessThan51() {
+		givenLeds(2);
 		setLevel(50);
 		assertStates(true, false);
 	}
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightLedOneAndTwoWhenLevelMoreThanFifty() {
+		givenLeds(2);
 		setLevel(51);
 		assertStates(true, true);
 	}
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightNoLedAfterLevelDropsToZero() {
+		givenLeds(2);
 		setLevel(51);
 		setLevel(0);
 		assertStates(false, false);
