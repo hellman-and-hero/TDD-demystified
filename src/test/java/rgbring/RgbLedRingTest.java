@@ -132,13 +132,12 @@ public class RgbLedRingTest {
 
 		public void publish(String topic, byte[] payload, int qos, boolean retained)
 				throws MqttException, MqttPersistenceException {
-			messageToSend.add(new String(payload));
+			// TODO Auto-generated method stub
 
 		}
 
 		public void publish(String topic, MqttMessage message) throws MqttException, MqttPersistenceException {
-			// TODO Auto-generated method stub
-
+			messageToSend.add(new String(message.getPayload()));
 		}
 
 		public void messageArrivedComplete(int messageId, int qos) throws MqttException {
