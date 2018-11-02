@@ -29,17 +29,6 @@ public class RgbLedRing {
 					color = ON;
 				}
 			}
-			if (ledCount == 6) {
-				color = i < ledCount / AMOUNT_OF_COLORS ? GREEN : OFF;
-				deviceAdapter.setLedColor(i, color);
-			} else {
-				if (ledState) {
-					deviceAdapter.setLedColor(i, ON);
-				} else {
-					deviceAdapter.setLedColor(i, OFF);
-				}
-			}
-
 		}
 	}
 
