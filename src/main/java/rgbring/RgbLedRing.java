@@ -33,6 +33,9 @@ public class RgbLedRing {
 					color = RED;
 				}
 			} 
+			else {
+				color = OFF;
+			}
 			deviceAdapter.setLedColor(i, color);
 		}
 	}
