@@ -3,6 +3,7 @@ package rgbring;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import rgbring.IMqttClientForTest.TopicAndMessage;
@@ -81,6 +82,14 @@ public class RgbLedRingTest {
 		assertStates(true, true, true, true);
 	}
 
+	@Test
+	public void givenRingWith6ColoredLedsShouldEnlightAllLedsWhenLevelIs100() throws Exception {
+		givenLeds(6);
+		ring.setLevel(100/6*2);
+		assertStates("#00ff00", "#00ff00", OFF, OFF, OFF, OFF);
+	}
+	
+	@Ignore
 	@Test
 	public void givenRingWith6ColoredLedsShouldEnlightAllLedsWhenLevelIs100() throws Exception {
 		givenLeds(6);
