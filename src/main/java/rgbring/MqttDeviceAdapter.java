@@ -7,9 +7,6 @@ import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 
 public class MqttDeviceAdapter implements DeviceAdapter {
 
-	private static final String OFF = "#000000";
-	private static final String ON = "#ffffff";
-
 	private final IMqttClient mqttClient;
 
 	public MqttDeviceAdapter(IMqttClient mqttClient) {
