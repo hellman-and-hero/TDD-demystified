@@ -1,7 +1,5 @@
 package rgbring;
 
-import org.eclipse.paho.client.mqttv3.IMqttClient;
-
 public class RgbLedRing {
 
 	private static final int MAX_LEVEL = 100;
