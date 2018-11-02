@@ -74,7 +74,7 @@ public class RgbLedRingTest {
 	}
 
 	private void assertStates(boolean... states) {
-		for (int i = 0; i < ring.getLeds().length; i++) {
+		for (int i = 0; i < ring.size(); i++) {
 			assertThat(ring.getLed(i), is(states[i]));
 		}
 	}
