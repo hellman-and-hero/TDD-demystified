@@ -7,15 +7,16 @@ import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 
 public class RgbLedRing {
 	
-	private final boolean[] leds;
 	private IMqttClient mqttClient;
+	private int ledCount;
 
 	public RgbLedRing(int ledCount, IMqttClient mqttClient) {
+		this.ledCount = ledCount;
 		this.mqttClient = mqttClient;
-		this.leds = new boolean[ledCount];
 	}
 
 	void setLevel(int level) {
+		boolean[] leds = new boolean[ledCount];
 		for (int i = 0; i < leds.length; i++) {
 			leds[i] = level > 100 / leds.length * i;
 			try {
@@ -30,6 +31,6 @@ public class RgbLedRing {
 	}
 
 	public int size() {
-		return leds.length;
+		return ledCount;
 	}
 }
