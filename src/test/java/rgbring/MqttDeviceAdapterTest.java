@@ -12,6 +12,7 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttSecurityException;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.Timeout;
@@ -25,10 +26,15 @@ public class MqttDeviceAdapterTest {
 	@Rule
 	public Timeout timeout = Timeout.seconds(5);
 
+	
+	@Before
+	public void setup() {
+		createReceiver4Test("someLed/rgb/");
+	}
+	
 	@Test
 	public void test() throws MqttException, InterruptedException {
 		// TODO do not depend on eclipse infrastructure
-		createReceiver4Test("someLed/rgb/");
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(createMqttClient());
 		sut.setLedColor(42, "#123456");
 		waitForResponse();
