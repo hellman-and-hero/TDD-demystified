@@ -235,7 +235,6 @@ public class RgbLedRingTest {
 	}
 
 	private RgbLedRing ring;
-	private IMqttClient client;
 	private final List<TopicAndMessage> topicAndMessages = new ArrayList<TopicAndMessage>();
 
 	@Test
@@ -314,8 +313,7 @@ public class RgbLedRingTest {
 	}
 
 	private void givenLeds(int ledCount) {
-		client = new IMqttClientForTest();
-		this.ring = new RgbLedRing(ledCount, new MqttDeviceAdapter(client));
+		this.ring = new RgbLedRing(ledCount, new MqttDeviceAdapter(new IMqttClientForTest()));
 	}
 
 }
