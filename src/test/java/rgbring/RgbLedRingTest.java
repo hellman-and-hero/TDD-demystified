@@ -21,6 +21,7 @@ import org.junit.Test;
 
 public class RgbLedRingTest {
 
+	private static final String OFF = "#000000";
 	private static final String ON = "#ffffff";
 
 	private static class TopicAndMessage {
@@ -309,7 +310,7 @@ public class RgbLedRingTest {
 		for (int i = 0; i < ring.size(); i++) {
 			TopicAndMessage topicAndMessage = topicAndMessages.get(i);
 			assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
-			String expected = states[i] ? ON : "#000000";
+			String expected = states[i] ? ON : OFF;
 			assertThat(topicAndMessage.getPayload(), is(expected));
 		}
 	}
