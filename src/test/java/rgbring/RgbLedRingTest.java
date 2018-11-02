@@ -149,7 +149,6 @@ public class RgbLedRingTest {
 		}
 
 		public void publish(String topic, MqttMessage message) throws MqttException, MqttPersistenceException {
-			messageToSend.add(new String(message.getPayload()));
 			topicAndMessages.add(new TopicAndMessage(message.getPayload()));
 		}
 
@@ -231,7 +230,6 @@ public class RgbLedRingTest {
 
 	private RgbLedRing ring;
 	private IMqttClient client;
-	private final List<String> messageToSend = new ArrayList<String>();
 	private final List<TopicAndMessage> topicAndMessages = new ArrayList<TopicAndMessage>();
 
 	@Test
@@ -302,7 +300,6 @@ public class RgbLedRingTest {
 		for (int i = 0; i < ring.size(); i++) {
 			assertThat(ring.getLed(i), is(states[i]));
 
-			assertThat(messageToSend.get(0), is("#ffffff"));
 			TopicAndMessage topicAndMessage = topicAndMessages.get(0);
 			assertThat(topicAndMessage.getPayload(), is("#ffffff"));
 
