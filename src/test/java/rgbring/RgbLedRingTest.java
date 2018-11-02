@@ -25,8 +25,8 @@ public class RgbLedRingTest {
 
 		private String payload;
 
-		public TopicAndMessage(byte[] bs) {
-			this.payload = new String(bs);
+		public TopicAndMessage(byte[] payload) {
+			this.payload = new String(payload);
 		}
 
 		public String getPayload() {
