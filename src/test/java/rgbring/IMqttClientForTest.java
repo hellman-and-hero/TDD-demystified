@@ -16,13 +16,12 @@ import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 import org.eclipse.paho.client.mqttv3.MqttTopic;
 
 public class IMqttClientForTest implements IMqttClient {
-	
+
 	private final List<TopicAndMessage> topicAndMessages = new ArrayList<TopicAndMessage>();
-	
+
 	public List<TopicAndMessage> getTopicAndMessages() {
 		return topicAndMessages;
 	}
-
 
 	public static class TopicAndMessage {
 
@@ -43,7 +42,7 @@ public class IMqttClientForTest implements IMqttClient {
 		}
 
 	}
-	
+
 	public void unsubscribe(String[] topicFilters) throws MqttException {
 		// TODO Auto-generated method stub
 
