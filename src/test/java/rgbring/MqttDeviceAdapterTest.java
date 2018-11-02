@@ -11,6 +11,9 @@ public class MqttDeviceAdapterTest {
 
 	@Test
 	public void test() throws MqttException {
+		
+		
+		
 		IMqttClient client = new MqttClient("localhost", "someledclient");
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(client);
 		fail("Not yet implemented");
