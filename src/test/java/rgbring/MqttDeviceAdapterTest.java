@@ -32,16 +32,16 @@ public class MqttDeviceAdapterTest {
 		client.connect();
 		createReceiver();
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(client);
-
 		sut.setLedColor(42, "#123456");
-
-		do {
-			TimeUnit.MILLISECONDS.sleep(100);
-			// noop
-		} while (received == null);
+		waitForResponse();
 		assertThat(received.getTopic(), is("someLed/rgb/42"));
 		assertThat(received.getPayload(), is("#123456"));
+	}
 
+	private void waitForResponse() throws InterruptedException {
+		do {
+			TimeUnit.MILLISECONDS.sleep(100);
+		} while (received == null);
 	}
 
 	private void createReceiver() throws MqttException, MqttSecurityException {
