@@ -23,12 +23,6 @@ public class RgbLedRing {
 
 			if (ledCount == 6) {
 				deviceAdapter.setLedColor(i, i < ledCount / AMOUNT_OF_COLORS ? GREEN : OFF);
-			} else {
-				if (ledState) {
-					deviceAdapter.setLedColor(i, ON);
-				} else {
-					deviceAdapter.setLedColor(i, OFF);
-				}
 			}
 
 		}
