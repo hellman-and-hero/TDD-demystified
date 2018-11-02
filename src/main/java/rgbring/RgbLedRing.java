@@ -2,6 +2,7 @@ package rgbring;
 
 public class RgbLedRing {
 
+	private static final String YELLOW = "#ffff00";
 	private static final int AMOUNT_OF_COLORS = 3;
 	private static final String GREEN = "#00ff00";
 	private static final String OFF = "#000000";
@@ -25,7 +26,9 @@ public class RgbLedRing {
 			if (ledState) {
 				if(i < ledCount / AMOUNT_OF_COLORS * 1) {
 					color = GREEN;
-				} else if (i < ledCount / AMOUNT_OF_COLORS * 2)
+				} else if (i < ledCount / AMOUNT_OF_COLORS * 2) {
+					color = YELLOW;
+				}
 				
 				else {
 					color = ON;
