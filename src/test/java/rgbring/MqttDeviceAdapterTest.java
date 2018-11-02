@@ -4,6 +4,8 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
+import java.util.concurrent.TimeUnit;
+
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -29,6 +31,9 @@ public class MqttDeviceAdapterTest {
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(client);
 
 		sut.setLedColor(42, "#123456");
+		
+		TimeUnit.SECONDS.sleep(3);
+		
 		TopicAndMessage received = receivingCLientHasReceived();
 		assertThat(received.getTopic(), is("someLed/rgb/42"));
 		assertThat(received.getPayload(), is("#123456"));
