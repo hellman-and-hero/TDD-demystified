@@ -17,7 +17,8 @@ public class RgbLedRing {
 
 	void setLevel(int level) {
 		for (int i = 0; i < size(); i++) {
-			setLedState(i, level > 100 / size() * i);
+			boolean ledState = level > 100 / size() * i;
+			setLedState(i, ledState);
 		}
 	}
 
