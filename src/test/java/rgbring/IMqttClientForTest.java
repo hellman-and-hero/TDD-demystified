@@ -160,7 +160,7 @@ public class IMqttClientForTest implements IMqttClient {
 	}
 
 	public void publish(String topic, MqttMessage message) throws MqttException, MqttPersistenceException {
-		rgbLedRingTest.topicAndMessages.add(new TopicAndMessage(topic, message.getPayload()));
+		topicAndMessages.add(new TopicAndMessage(topic, message.getPayload()));
 	}
 
 	public void messageArrivedComplete(int messageId, int qos) throws MqttException {
