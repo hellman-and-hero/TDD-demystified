@@ -17,7 +17,7 @@ public class RgbLedRing {
 
 	void setLevel(int level) {
 		boolean[] leds = new boolean[ledCount];
-		for (int i = 0; i < leds.length; i++) {
+		for (int i = 0; i < size(); i++) {
 			leds[i] = level > 100 / leds.length * i;
 			try {
 				String payload = leds[i] ? "#ffffff" : "#000000";
