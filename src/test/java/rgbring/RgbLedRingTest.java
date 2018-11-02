@@ -300,7 +300,7 @@ public class RgbLedRingTest {
 			@Override
 			void setLevel(int level) {
 				super.setLevel(level);
-				client.publish("someLed/rgb/"+i, new MqttMessage("#fffffff".getBytes()));
+				client.publish("someLed/rgb/""0"i, new MqttMessage("#fffffff".getBytes()));
 			}
 		};
 	}
