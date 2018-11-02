@@ -9,17 +9,12 @@ import org.junit.Test;
 public class RgbLedRingTest {
 
 	private boolean led1, led2, led3, led4;
-	private int ledCount;
+	private int ledCount = 2;
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
-		givenLeds(2);
 		setLevel(0);
 		assertStates(false, false);
-	}
-
-	private void givenLeds(int ledCount) {
-		this.ledCount = ledCount;
 	}
 
 	@Test
@@ -49,6 +44,7 @@ public class RgbLedRingTest {
 
 	@Test
 	public void givenRingWith4LedsShouldEnlightLedOneWhenLevelIsLessThan26() {
+		givenLeds(4);
 		setLevel(25);
 		assertStates(true, false, false, false);
 	}
@@ -56,6 +52,7 @@ public class RgbLedRingTest {
 	@Test
 	@Ignore
 	public void givenRingWith4LedsShouldEnlightLedOneAndTwoWhenLevelIsMoreThan25() {
+		givenLeds(4);
 		setLevel(26);
 		assertStates(true, true, false, false);
 	}
@@ -70,6 +67,10 @@ public class RgbLedRingTest {
 	private void assertStates(boolean state1, boolean state2) {
 		assertThat(led1, is(state1));
 		assertThat(led2, is(state2));
+	}
+
+	private void givenLeds(int ledCount) {
+		this.ledCount = ledCount;
 	}
 
 	private void setLevel(int level) {
