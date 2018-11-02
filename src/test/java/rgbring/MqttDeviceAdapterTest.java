@@ -28,7 +28,7 @@ public class MqttDeviceAdapterTest {
 	@Test
 	public void test() throws MqttException, InterruptedException {
 		// TODO do not depend on eclipse infrastructure
-		createReceiver("someLed/rgb/");
+		createReceiver4Test("someLed/rgb/");
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(createMqttClient());
 		sut.setLedColor(42, "#123456");
 		waitForResponse();
@@ -48,7 +48,7 @@ public class MqttDeviceAdapterTest {
 		} while (received == null);
 	}
 
-	private void createReceiver(String topic) throws MqttException, MqttSecurityException {
+	private void createReceiver4Test(String topic) throws MqttException, MqttSecurityException {
 		IMqttClient receivingClient = new MqttClient("tcp://iot.eclipse.org", "someOtherClient");
 		receivingClient.connect();
 		receivingClient.subscribe(topic + "#");
