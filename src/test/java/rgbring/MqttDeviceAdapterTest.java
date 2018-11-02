@@ -3,6 +3,8 @@ package rgbring;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.concurrent.TimeUnit;
+
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -34,6 +36,7 @@ public class MqttDeviceAdapterTest {
 		sut.setLedColor(42, "#123456");
 
 		do {
+			TimeUnit.MILLISECONDS.sleep(100);
 			// noop
 		} while (received == null);
 		assertThat(received.getTopic(), is("someLed/rgb/42"));
