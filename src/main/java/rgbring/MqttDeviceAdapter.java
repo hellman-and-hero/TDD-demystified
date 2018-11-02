@@ -20,9 +20,9 @@ public class MqttDeviceAdapter implements DeviceAdapter {
 		setLedColor(ledNum, ledState ? ON : OFF);
 	}
 
-	public void setLedColor(int ledNum, String payload) {
+	public void setLedColor(int ledNum, String colorCode) {
 		try {
-			mqttClient.publish("someLed/rgb/" + ledNum, new MqttMessage(payload.getBytes()));
+			mqttClient.publish("someLed/rgb/" + ledNum, new MqttMessage(colorCode.getBytes()));
 		} catch (MqttPersistenceException e) {
 			throw new RuntimeException(e);
 		} catch (MqttException e) {
