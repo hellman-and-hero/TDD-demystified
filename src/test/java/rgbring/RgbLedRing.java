@@ -5,8 +5,6 @@ import org.eclipse.paho.client.mqttv3.IMqttClient;
 public class RgbLedRing {
 
 	private static final int MAX_LEVEL = 100;
-	public static final String OFF = "#000000";
-	public static final String ON = "#ffffff";
 	@Deprecated
 	public IMqttClient mqttClient;
 	private DeviceAdapter deviceAdapter;
