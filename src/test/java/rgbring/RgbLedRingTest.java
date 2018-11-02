@@ -79,6 +79,10 @@ public class RgbLedRingTest {
 		}
 	}
 
+	private void assertStates(boolean state1, boolean state2) {
+		assertThat(led1, is(state1));
+		assertThat(led2, is(state2));
+	}
 
 	private void givenLeds(int ledCount) {
 		this.leds = new boolean[ledCount];
