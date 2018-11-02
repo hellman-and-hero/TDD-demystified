@@ -9,7 +9,7 @@ import org.junit.Test;
 public class RgbLedRingTest {
 
 	private boolean[] leds = new boolean[2];
-	
+
 	@Test
 	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
 		setLevel(0);
@@ -54,12 +54,14 @@ public class RgbLedRingTest {
 		setLevel(26);
 		assertStates(true, true, false, false);
 	}
+
 	@Test
 	public void givenRingWith4LedsShouldEnlightLedOneAndTwoAndThreeWhenLevelIsMoreThan50() {
 		givenLeds(4);
 		setLevel(51);
 		assertStates(true, true, true, false);
 	}
+
 	@Test
 	public void givenRingWith4LedsShouldEnlightLedOneAndTwoAndThreeAndFourWhenLevelIsMoreThan75() {
 		givenLeds(4);
@@ -73,21 +75,22 @@ public class RgbLedRingTest {
 		}
 	}
 
-
 	private void givenLeds(int ledCount) {
 		this.leds = new boolean[ledCount];
 	}
 
 	private void setLevel(int level) {
-		if (leds.length==4) {
+		if (leds.length == 4) {
 			leds[0] = level > 0;
 			leds[1] = level > 25;
 			leds[2] = level > 50;
 			leds[3] = level > 75;
 			return;
 		}
-		leds[0] = level > 0;
-		leds[1] = level > 50;
+		if (leds.length == 2) {
+			leds[0] = level > 0;
+			leds[1] = level > 50;
+		}
 	}
 
 }
