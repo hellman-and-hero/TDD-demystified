@@ -23,6 +23,10 @@ public class RgbLedRing {
 
 	private void setLedState(int level, int ledNum) {
 		boolean ledState = level > 100 / size() * ledNum;
+		setLedState(ledNum, ledState);
+	}
+
+	private void setLedState(int ledNum, boolean ledState) {
 		try {
 			String payload = ledState ? "#ffffff" : "#000000";
 			mqttClient.publish("someLed/rgb/" + ledNum, new MqttMessage(payload.getBytes()));
