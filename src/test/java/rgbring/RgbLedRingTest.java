@@ -74,18 +74,18 @@ public class RgbLedRingTest {
 	}
 
 	private void assertStates(boolean... states) {
-		for (int i = 0; i < ring.leds.length; i++) {
-			assertThat(ring.leds[i], is(states[i]));
+		for (int i = 0; i < ring.getLeds().length; i++) {
+			assertThat(ring.getLeds()[i], is(states[i]));
 		}
 	}
 
 	private void givenLeds(int ledCount) {
-		this.ring.leds = new boolean[ledCount];
+		this.ring.setLeds(new boolean[ledCount]);
 	}
 
 	private void setLevel(int level) {
-		for (int i = 0; i < ring.leds.length; i++) {
-			ring.leds[i] = level > 100 / ring.leds.length * i;
+		for (int i = 0; i < ring.getLeds().length; i++) {
+			ring.getLeds()[i] = level > 100 / ring.getLeds().length * i;
 		}
 	}
 
