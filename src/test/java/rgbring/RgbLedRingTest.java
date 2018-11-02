@@ -69,7 +69,7 @@ public class RgbLedRingTest {
 	}
 
 	private void assertStates(boolean... states) {
-		int cnt;
+		int cnt = 0;
 		assertThat(led1, is(states[cnt++]));
 		assertThat(led2, is(states[cnt++]));
 		assertThat(led3, is(states[cnt++]));
