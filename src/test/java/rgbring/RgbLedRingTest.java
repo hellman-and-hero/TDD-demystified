@@ -87,7 +87,7 @@ public class RgbLedRingTest {
 			return;
 		}
 		leds[0] = level > 0;
-		leds[1] = level > 25;
+		leds[1] = level > 50;
 	}
 
 }
