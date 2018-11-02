@@ -18,7 +18,7 @@ public class RgbLedRing {
 		}
 	}
 
-	public boolean getLed(int i) {
-		return leds[i];
+	public boolean getLed(int num) {
+		return leds[num];
 	}
 }
