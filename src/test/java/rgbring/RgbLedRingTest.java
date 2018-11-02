@@ -50,7 +50,6 @@ public class RgbLedRingTest {
 	}
 
 	@Test
-	@Ignore
 	public void givenRingWith4LedsShouldEnlightLedOneAndTwoWhenLevelIsMoreThan25() {
 		givenLeds(4);
 		setLevel(26);
