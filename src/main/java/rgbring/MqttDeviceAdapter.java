@@ -10,16 +10,12 @@ public class MqttDeviceAdapter implements DeviceAdapter {
 	public static final String OFF = "#000000";
 	public static final String ON = "#ffffff";
 
-	
 	private final IMqttClient mqttClient;
 
 	public MqttDeviceAdapter(IMqttClient mqttClient) {
 		this.mqttClient = mqttClient;
 	}
 
-	/* (non-Javadoc)
-	 * @see rgbring.DeviceAdapter#setLedState(java.lang.Object, int, boolean)
-	 */
 	public void setLedState(Object rgbLedRing, int ledNum, boolean ledState) {
 		try {
 			String payload = ledState ? ON : OFF;
