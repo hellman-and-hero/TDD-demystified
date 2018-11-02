@@ -12,7 +12,7 @@ public class RgbLedRing {
 		return leds;
 	}
 
-	void setLevel(RgbLedRingTest unused, int level) {
+	void setLevel(int level) {
 		for (int i = 0; i < getLeds().length; i++) {
 			getLeds()[i] = level > 100 / getLeds().length * i;
 		}
