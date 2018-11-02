@@ -43,9 +43,7 @@ public class MqttDeviceAdapterTest {
 	}
 
 	private IMqttClient createMqttClient() throws MqttException, MqttSecurityException {
-		IMqttClient client = new MqttClient("tcp://iot.eclipse.org", "someledclient");
-		client.connect();
-		return client;
+		return new MqttClient("tcp://iot.eclipse.org", "someledclient");
 	}
 
 	private void waitForResponse() throws InterruptedException {
