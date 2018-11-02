@@ -19,15 +19,18 @@ import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 import org.eclipse.paho.client.mqttv3.MqttTopic;
 import org.junit.Test;
 
-import rgbring.RgbLedRingTest.TopicAndMessage;
-
 public class RgbLedRingTest {
 
 	private static class TopicAndMessage {
 
+		private String payload;
+
+		public TopicAndMessage(String payload) {
+			this.payload = payload;
+		}
+
 		public String getPayload() {
-			// TODO Auto-generated method stub
-			return null;
+			return payload;
 		}
 
 	}
@@ -49,8 +52,8 @@ public class RgbLedRingTest {
 			return null;
 		}
 
-		public IMqttToken subscribeWithResponse(String topicFilter, int qos,
-				IMqttMessageListener messageListener) throws MqttException {
+		public IMqttToken subscribeWithResponse(String topicFilter, int qos, IMqttMessageListener messageListener)
+				throws MqttException {
 			// TODO Auto-generated method stub
 			return null;
 		}
@@ -93,14 +96,12 @@ public class RgbLedRingTest {
 
 		}
 
-		public void subscribe(String topicFilter, int qos, IMqttMessageListener messageListener)
-				throws MqttException {
+		public void subscribe(String topicFilter, int qos, IMqttMessageListener messageListener) throws MqttException {
 			// TODO Auto-generated method stub
 
 		}
 
-		public void subscribe(String[] topicFilters, IMqttMessageListener[] messageListeners)
-				throws MqttException {
+		public void subscribe(String[] topicFilters, IMqttMessageListener[] messageListeners) throws MqttException {
 			// TODO Auto-generated method stub
 
 		}
@@ -206,8 +207,7 @@ public class RgbLedRingTest {
 
 		}
 
-		public IMqttToken connectWithResult(MqttConnectOptions options)
-				throws MqttSecurityException, MqttException {
+		public IMqttToken connectWithResult(MqttConnectOptions options) throws MqttSecurityException, MqttException {
 			// TODO Auto-generated method stub
 			return null;
 		}
@@ -301,11 +301,10 @@ public class RgbLedRingTest {
 		for (int i = 0; i < ring.size(); i++) {
 			assertThat(ring.getLed(i), is(states[i]));
 
-
 			assertThat(messageToSend.get(0), is("#ffffff"));
 			TopicAndMessage topicAndMessage = topicAndMessages.get(0);
 			assertThat(topicAndMessage.getPayload(), is("#ffffff"));
-			
+
 		}
 	}
 
