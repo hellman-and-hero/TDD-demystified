@@ -23,6 +23,10 @@ public class IMqttClientForTest implements IMqttClient {
 		return topicAndMessages;
 	}
 
+	public void clearMessages() {
+		topicAndMessages.clear();
+	}
+
 	public static class TopicAndMessage {
 
 		private final String topic;
@@ -233,4 +237,5 @@ public class IMqttClientForTest implements IMqttClient {
 		// TODO Auto-generated method stub
 
 	}
+
 }
