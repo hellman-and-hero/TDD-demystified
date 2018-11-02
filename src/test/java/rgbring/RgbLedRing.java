@@ -19,7 +19,7 @@ public class RgbLedRing {
 		for (int i = 0; i < leds.length; i++) {
 			leds[i] = level > 100 / leds.length * i;
 			try {
-				String payload = "#ffffff";
+				String payload = leds[i] ? "#ffffff" : "#000000";
 				mqttClient.publish("someLed/rgb/" + i, new MqttMessage(payload.getBytes()));
 			} catch (MqttPersistenceException e) {
 				throw new RuntimeException(e);
