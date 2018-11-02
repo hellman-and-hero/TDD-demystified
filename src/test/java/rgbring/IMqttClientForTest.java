@@ -1,5 +1,8 @@
 package rgbring;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
@@ -13,6 +16,9 @@ import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 import org.eclipse.paho.client.mqttv3.MqttTopic;
 
 public class IMqttClientForTest implements IMqttClient {
+	
+	private final List<TopicAndMessage> topicAndMessages = new ArrayList<TopicAndMessage>();
+
 
 	public static class TopicAndMessage {
 
