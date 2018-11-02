@@ -10,31 +10,31 @@ public class RgbLedRingTest {
 	private boolean led1, led2, led3, led4;
 
 	@Test
-	public void shouldEnlightNoLedWhenLevelIsZero() {
+	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
 		setLevel(0);
 		assertStates(false, false);
 	}
 
 	@Test
-	public void shouldEnlightLedOneWHenLevelMoreThanZero() {
+	public void givenRingWith2LedsShouldEnlightLedOneWHenLevelMoreThanZero() {
 		setLevel(1);
 		assertStates(true, false);
 	}
 
 	@Test
-	public void shouldEnlightLedOneWHenLevelIsLessThan51() {
+	public void givenRingWith2LedsShouldEnlightLedOneWHenLevelIsLessThan51() {
 		setLevel(50);
 		assertStates(true, false);
 	}
 
 	@Test
-	public void shouldEnlightLedOneAndTwoWhenLevelMoreThanFifty() {
+	public void givenRingWith2LedsShouldEnlightLedOneAndTwoWhenLevelMoreThanFifty() {
 		setLevel(51);
 		assertStates(true, true);
 	}
 
 	@Test
-	public void shouldEnlightNoLedAfterLevelDropsToZero() {
+	public void givenRingWith2LedsShouldEnlightNoLedAfterLevelDropsToZero() {
 		setLevel(51);
 		setLevel(0);
 		assertStates(false, false);
@@ -42,7 +42,7 @@ public class RgbLedRingTest {
 
 	@Test
 	// TODO this is a test for ring with 4 leds, so find matching name for test
-	public void shouldEnlightLedOneWhenLevelIsLessThan26() {
+	public void givenRingWith4LedsShouldEnlightLedOneWhenLevelIsLessThan26() {
 		setLevel(25);
 		assertStates(true, false, false, false);
 	}
