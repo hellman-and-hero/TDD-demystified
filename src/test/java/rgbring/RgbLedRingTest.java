@@ -90,9 +90,7 @@ public class RgbLedRingTest {
 			leds[3] = led4;
 			return;
 		}
-		led1 = level > 0;
 		leds[0] = led1;
-		led2 = level > 50;
 		leds[1] = led2;
 	}
 
