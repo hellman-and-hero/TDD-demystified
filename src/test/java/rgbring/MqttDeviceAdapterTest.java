@@ -31,10 +31,11 @@ public class MqttDeviceAdapterTest {
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(client);
 
 		sut.setLedColor(42, "#123456");
-		
-		TimeUnit.SECONDS.sleep(3);
-		
-		TopicAndMessage received = receivingCLientHasReceived();
+
+		TopicAndMessage received;
+		do {
+			received = receivingCLientHasReceived();
+		} while (received == null);
 		assertThat(received.getTopic(), is("someLed/rgb/42"));
 		assertThat(received.getPayload(), is("#123456"));
 
