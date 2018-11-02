@@ -79,25 +79,15 @@ public class RgbLedRingTest {
 	}
 
 	private void setLevel(int level) {
-		boolean led1;
-		boolean led2;
-		boolean led3;
-		boolean led4;
 		if (leds.length==4) {
-			led1 = level > 0;
-			leds[0] = led1;
-			led2 = level > 25;
-			leds[1] = led2;
-			led3 = level > 50;
-			leds[2] = led3;
-			led4 = level > 75;
-			leds[3] = led4;
+			leds[0] = level > 0;
+			leds[1] = level > 25;
+			leds[2] = level > 50;
+			leds[3] = level > 75;
 			return;
 		}
-		led1 = level > 0;
-		leds[0] = led1;
-		led2 = level > 50;
-		leds[1] = led2;
+		leds[0] = level > 0;
+		leds[1] = level > 25;
 	}
 
 }
