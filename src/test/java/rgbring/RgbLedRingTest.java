@@ -23,9 +23,11 @@ public class RgbLedRingTest {
 
 	private static class TopicAndMessage {
 
-		private String payload;
+		private final String topic;
+		private final String payload;
 
 		public TopicAndMessage(String topic, byte[] payload) {
+			this.topic = topic;
 			this.payload = new String(payload);
 		}
 
