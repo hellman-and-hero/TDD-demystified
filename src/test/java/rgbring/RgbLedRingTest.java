@@ -308,7 +308,7 @@ public class RgbLedRingTest {
 
 			TopicAndMessage topicAndMessage = topicAndMessages.get(i);
 			assertThat(topicAndMessage.getTopic(), is("someLed/rgb/"
-					+ "0"));
+					+ i));
 			assertThat(topicAndMessage.getPayload(), is("#ffffff"));
 
 		}
