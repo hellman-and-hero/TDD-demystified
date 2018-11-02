@@ -1,5 +1,6 @@
 package rgbring;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
@@ -7,6 +8,7 @@ import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttSecurityException;
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
 import rgbring.IMqttClientForTest.TopicAndMessage;
@@ -23,8 +25,8 @@ public class MqttDeviceAdapterTest {
 		
 		sut.setLedColor(42, "#123456");
 		TopicAndMessage received = receivingCLientHasReceived();
-		assertThat(received.getTopic(), "someLed/rgb/42");
-		assertThat(received.getPayload(), "#123456");
+		assertThat(received.getTopic(), is("someLed/rgb/42"));
+		assertThat(received.getPayload(), is("#123456"));
 
 	}
 
