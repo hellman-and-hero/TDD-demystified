@@ -12,10 +12,12 @@ public class RgbLedRing {
 	private static final String ON = "#ffffff";
 	private IMqttClient mqttClient;
 	private int ledCount;
+	private DeviceAdapter deviceAdapter;
 
 	public RgbLedRing(int ledCount, IMqttClient mqttClient, DeviceAdapter deviceAdapter) {
 		this.ledCount = ledCount;
 		this.mqttClient = mqttClient;
+		this.deviceAdapter = deviceAdapter;
 	}
 
 	void setLevel(int level) {
