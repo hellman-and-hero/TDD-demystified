@@ -5,8 +5,11 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 import org.eclipse.paho.client.mqttv3.IMqttClient;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
@@ -14,6 +17,8 @@ import org.junit.Test;
 import rgbring.IMqttClientForTest.TopicAndMessage;
 
 public class MqttDeviceAdapterTest {
+
+	protected TopicAndMessage received;
 
 	@Test
 	public void test() throws MqttException {
@@ -38,6 +43,24 @@ public class MqttDeviceAdapterTest {
 		IMqttClient receivingClient = new MqttClient("tcp://iot.eclipse.org", "someOtherClient");
 		receivingClient.connect();
 		receivingClient.subscribe("someLed/rgb/#");
+		MqttCallback callback = new MqttCallback() {
+
+			public void messageArrived(String topic, MqttMessage message) throws Exception {
+				received = new TopicAndMessage(topic, message.getPayload());
+
+			}
+
+			public void deliveryComplete(IMqttDeliveryToken token) {
+				// TODO Auto-generated method stub
+
+			}
+
+			public void connectionLost(Throwable cause) {
+				// TODO Auto-generated method stub
+
+			}
+		};
+		receivingClient.setCallback(callback);
 	}
 
 }
