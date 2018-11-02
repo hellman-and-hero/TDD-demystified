@@ -24,7 +24,7 @@ public class RgbLedRing {
 				if (i<2) {
 					deviceAdapter.setLedColor(i, ledState ? "#00ff00" : OFF);
 				} else {
-					deviceAdapter.setLedColor(i, ledState ? ON : OFF);
+					deviceAdapter.setLedColor(i, OFF);
 				}
 			} else {
 				deviceAdapter.setLedColor(i, ledState ? ON : OFF);
