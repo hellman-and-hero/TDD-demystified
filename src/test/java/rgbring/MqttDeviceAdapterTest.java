@@ -11,9 +11,12 @@ public class MqttDeviceAdapterTest {
 
 	@Test
 	public void test() throws MqttException {
-
+		// TODO do not depend on eclipse infrastructure
 		IMqttClient client = new MqttClient("tcp://iot.eclipse.org", "someledclient");
 		client.connect();
+		IMqttClient receivingClient = new MqttClient("tcp://iot.eclipse.org", "someOtherClient");
+		receivingClient.subscribe("");
+		receivingClient.connect();
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(client);
 
 	}
