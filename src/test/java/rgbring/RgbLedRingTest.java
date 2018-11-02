@@ -48,7 +48,7 @@ public class RgbLedRingTest {
 	public void givenRingWith2LedsShouldEnlightNoLedAfterLevelDropsToZero() {
 		givenLeds(2);
 		ring.setLevel(51);
-		topicAndMessages.clear();
+		mqttClient.clearMessages();
 
 		ring.setLevel(0);
 		assertStates(false, false);
