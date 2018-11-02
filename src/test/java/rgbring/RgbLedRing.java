@@ -6,7 +6,7 @@ public class RgbLedRing {
 	
 	private final boolean[] leds;
 
-	public RgbLedRing(int ledCount, IMqttClient client) {
+	public RgbLedRing(int ledCount, IMqttClient mqttClient) {
 		this.leds = new boolean[ledCount];
 	}
 
