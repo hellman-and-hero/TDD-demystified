@@ -296,7 +296,7 @@ public class RgbLedRingTest {
 
 	private void givenLeds(int ledCount) {
 		client = new IMqttClientForTest();
-		this.ring = new RgbLedRing(ledCount) {
+		this.ring = new RgbLedRing(ledCount, client) {
 			@Override
 			void setLevel(int level) {
 				super.setLevel(level);
