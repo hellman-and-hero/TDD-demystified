@@ -21,6 +21,8 @@ import rgbring.IMqttClientForTest.TopicAndMessage;
 
 public class MqttDeviceAdapterIT {
 
+	private static final String BROKER_HOSTNAME = "iot.eclipse.org";
+
 	protected TopicAndMessage received;
 
 	@Rule
@@ -28,22 +30,21 @@ public class MqttDeviceAdapterIT {
 
 	@Before
 	public void setup() throws MqttSecurityException, MqttException {
-		createReceiver4Test("someLed/rgb/");
+		createReceiver4Test(BROKER_HOSTNAME, "someLed/rgb/");
 	}
 
 	@Test
-	public void mqttDeviceAdapterShouldPublishToBroker()
-			throws Exception {
+	public void mqttDeviceAdapterShouldPublishToBroker() throws Exception {
 		// TODO do not depend on eclipse infrastructure
-		MqttDeviceAdapter sut = new MqttDeviceAdapter(createMqttClient());
+		MqttDeviceAdapter sut = new MqttDeviceAdapter(createMqttClient(BROKER_HOSTNAME));
 		sut.setLedColor(42, "#123456");
 		waitForResponse();
 		assertThat(received.getTopic(), is("someLed/rgb/42"));
 		assertThat(received.getPayload(), is("#123456"));
 	}
 
-	private IMqttClient createMqttClient() throws MqttException, MqttSecurityException {
-		return new MqttClient("tcp://iot.eclipse.org", "someledclient");
+	private IMqttClient createMqttClient(String hostname) throws MqttException, MqttSecurityException {
+		return new MqttClient("tcp://" + hostname, "someledclient");
 	}
 
 	private void waitForResponse() throws InterruptedException {
@@ -52,8 +53,8 @@ public class MqttDeviceAdapterIT {
 		} while (received == null);
 	}
 
-	private void createReceiver4Test(String topic) throws MqttException, MqttSecurityException {
-		IMqttClient receivingClient = new MqttClient("tcp://iot.eclipse.org", "someOtherClient");
+	private void createReceiver4Test(String hostname, String topic) throws MqttException, MqttSecurityException {
+		IMqttClient receivingClient = new MqttClient("tcp://" + hostname, "someOtherClient");
 		receivingClient.connect();
 		receivingClient.subscribe(topic + "#");
 		receivingClient.setCallback(new MqttCallback() {
