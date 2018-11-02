@@ -1,8 +1,17 @@
 package rgbring;
 
 public class RgbLedRing {
-	public boolean[] leds;
+	
+	private boolean[] leds;
 
 	public RgbLedRing() {
+	}
+
+	public boolean[] getLeds() {
+		return leds;
+	}
+
+	public void setLeds(boolean[] leds) {
+		this.leds = leds;
 	}
 }
