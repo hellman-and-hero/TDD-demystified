@@ -11,8 +11,6 @@ public class RgbLedRingTest {
 	private boolean led1, led2, led3, led4;
 	private boolean[] leds = new boolean[2];
 	
-	private int ledCount = 2;
-
 	@Test
 	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
 		setLevel(0);
@@ -83,7 +81,6 @@ public class RgbLedRingTest {
 	}
 
 	private void givenLeds(int ledCount) {
-		this.ledCount = ledCount;
 		this.leds = new boolean[ledCount];
 	}
 
