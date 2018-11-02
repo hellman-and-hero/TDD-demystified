@@ -9,11 +9,17 @@ import org.junit.Test;
 public class RgbLedRingTest {
 
 	private boolean led1, led2, led3, led4;
+	private int ledCount;
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
+		givenLeds(2);
 		setLevel(0);
 		assertStates(false, false);
+	}
+
+	private void givenLeds(int ledCount) {
+		this.ledCount = ledCount;
 	}
 
 	@Test
