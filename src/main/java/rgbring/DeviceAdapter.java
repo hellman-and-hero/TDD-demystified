@@ -17,7 +17,7 @@ public class DeviceAdapter {
 		this.mqttClient = mqttClient;
 	}
 
-	public void setLedState(RgbLedRing rgbLedRing, int ledNum, boolean ledState) {
+	public void setLedState(Object rgbLedRing, int ledNum, boolean ledState) {
 		try {
 			String payload = ledState ? ON : OFF;
 			rgbLedRing.mqttClient.publish("someLed/rgb/" + ledNum, new MqttMessage(payload.getBytes()));
