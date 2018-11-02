@@ -21,7 +21,8 @@ public class RgbLedRing {
 
 			if (ledCount == 6) {
 				if (i < 2) {
-					deviceAdapter.setLedColor(i, "#00ff00");
+					String color = "#00ff00";
+					deviceAdapter.setLedColor(i, color);
 				} else {
 					deviceAdapter.setLedColor(i, OFF);
 				}
