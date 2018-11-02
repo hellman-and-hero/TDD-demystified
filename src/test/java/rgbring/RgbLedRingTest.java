@@ -25,6 +25,11 @@ public class RgbLedRingTest {
 
 	private static class TopicAndMessage {
 
+		public String getPayload() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
 	}
 
 	private final class IMqttClientForTest implements IMqttClient {
@@ -298,6 +303,9 @@ public class RgbLedRingTest {
 
 
 			assertThat(messageToSend.get(0), is("#ffffff"));
+			TopicAndMessage topicAndMessage = topicAndMessages.get(0);
+			assertThat(topicAndMessage.getPayload(), is("#ffffff"));
+			
 		}
 	}
 
