@@ -84,6 +84,7 @@ public class RgbLedRingTest {
 
 	private void givenLeds(int ledCount) {
 		this.ledCount = ledCount;
+		this.leds = new boolean[ledCount];
 	}
 
 	private void setLevel(int level) {
