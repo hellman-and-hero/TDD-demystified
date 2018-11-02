@@ -25,6 +25,8 @@ public class RgbLedRing {
 			if (ledState) {
 				if(i < ledCount / AMOUNT_OF_COLORS) {
 					color = GREEN;
+				}else {
+					color = ON;
 				}
 			}
 			if (ledCount == 6) {
