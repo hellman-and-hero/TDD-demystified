@@ -14,7 +14,7 @@ public class MqttDeviceAdapterTest {
 		
 		
 		
-		IMqttClient client = new MqttClient("localhost", "someledclient");
+		IMqttClient client = new MqttClient("tcp://localhost", "someledclient");
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(client);
 		fail("Not yet implemented");
 	}
