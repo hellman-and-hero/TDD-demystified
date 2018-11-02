@@ -30,7 +30,7 @@ public class MqttDeviceAdapterTest {
 		// TODO do not depend on eclipse infrastructure
 		IMqttClient client = new MqttClient("tcp://iot.eclipse.org", "someledclient");
 		client.connect();
-		createReceiver();
+		createReceiver("someLed/rgb/");
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(client);
 		sut.setLedColor(42, "#123456");
 		waitForResponse();
@@ -44,11 +44,11 @@ public class MqttDeviceAdapterTest {
 		} while (received == null);
 	}
 
-	private void createReceiver() throws MqttException, MqttSecurityException {
+	private void createReceiver(String topic) throws MqttException, MqttSecurityException {
 		IMqttClient receivingClient = new MqttClient("tcp://iot.eclipse.org", "someOtherClient");
 		receivingClient.connect();
-		receivingClient.subscribe("someLed/rgb/#");
-		MqttCallback callback = new MqttCallback() {
+		receivingClient.subscribe(topic + "#");
+		receivingClient.setCallback(new MqttCallback() {
 
 			public void messageArrived(String topic, MqttMessage message) throws Exception {
 				received = new TopicAndMessage(topic, message.getPayload());
@@ -56,16 +56,13 @@ public class MqttDeviceAdapterTest {
 			}
 
 			public void deliveryComplete(IMqttDeliveryToken token) {
-				// TODO Auto-generated method stub
-
+				// ignore
 			}
 
 			public void connectionLost(Throwable cause) {
-				// TODO Auto-generated method stub
-
+				// ignore
 			}
-		};
-		receivingClient.setCallback(callback);
+		});
 	}
 
 }
