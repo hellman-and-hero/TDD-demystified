@@ -33,7 +33,7 @@ public class MqttDeviceAdapterTest {
 	}
 	
 	@Test
-	public void test() throws MqttSecurityException, MqttException, InterruptedException {
+	public void mqttDeviceAdapterShouldPublishToBroker() throws MqttSecurityException, MqttException, InterruptedException {
 		// TODO do not depend on eclipse infrastructure
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(createMqttClient());
 		sut.setLedColor(42, "#123456");
