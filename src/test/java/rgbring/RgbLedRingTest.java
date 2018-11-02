@@ -3,15 +3,15 @@ package rgbring;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class RgbLedRingTest {
 
-	private boolean[] leds = new boolean[2];
+	private boolean[] leds;
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
+		givenLeds(2);
 		setLevel(0);
 		assertStates(false, false);
 	}
