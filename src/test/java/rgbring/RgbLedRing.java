@@ -17,4 +17,8 @@ public class RgbLedRing {
 			leds[i] = level > 100 / leds.length * i;
 		}
 	}
+
+	public boolean getLed(int i) {
+		return leds[i];
+	}
 }
