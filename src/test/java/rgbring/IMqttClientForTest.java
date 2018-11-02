@@ -18,6 +18,10 @@ import org.eclipse.paho.client.mqttv3.MqttTopic;
 public class IMqttClientForTest implements IMqttClient {
 	
 	private final List<TopicAndMessage> topicAndMessages = new ArrayList<TopicAndMessage>();
+	
+	public List<TopicAndMessage> getTopicAndMessages() {
+		return topicAndMessages;
+	}
 
 
 	public static class TopicAndMessage {
