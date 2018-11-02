@@ -3,8 +3,9 @@ package rgbring;
 public class RgbLedRing {
 
 	private static final int MAX_LEVEL = 100;
-	private DeviceAdapter deviceAdapter;
-	private int ledCount;
+	
+	private final int ledCount;
+	private final DeviceAdapter deviceAdapter;
 
 	public RgbLedRing(int ledCount, DeviceAdapter deviceAdapter) {
 		this.ledCount = ledCount;
