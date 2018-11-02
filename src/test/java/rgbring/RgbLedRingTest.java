@@ -307,7 +307,8 @@ public class RgbLedRingTest {
 			assertThat(ring.getLed(i), is(states[i]));
 			TopicAndMessage topicAndMessage = topicAndMessages.get(i);
 			assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
-			assertThat(topicAndMessage.getPayload(), is("#ffffff"));
+			String expected = "#ffffff";
+			assertThat(topicAndMessage.getPayload(), is(expected));
 		}
 	}
 
