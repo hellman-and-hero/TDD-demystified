@@ -64,7 +64,7 @@ public class RgbLedRingTest {
 	@Test
 	public void givenRingWith4LedsShouldEnlightLedOneAndTwoAndThreeAndFourWhenLevelIsMoreThan75() {
 		givenLeds(4);
-		setLevel(75);
+		setLevel(76);
 		assertStates(true, true, true, true);
 	}
 
