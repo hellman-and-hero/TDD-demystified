@@ -91,7 +91,8 @@ public class RgbLedRingTest {
 	}
 
 	private void givenLeds(int ledCount) {
-		this.ring = new RgbLedRing(ledCount, new MqttDeviceAdapter(new IMqttClientForTest()));
+		IMqttClientForTest mqttClient = new IMqttClientForTest();
+		this.ring = new RgbLedRing(ledCount, new MqttDeviceAdapter(mqttClient));
 	}
 
 }
