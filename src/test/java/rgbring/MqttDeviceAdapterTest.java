@@ -22,7 +22,7 @@ public class MqttDeviceAdapterTest {
 		client.connect();
 		createReceiver();
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(client);
-		
+
 		sut.setLedColor(42, "#123456");
 		TopicAndMessage received = receivingCLientHasReceived();
 		assertThat(received.getTopic(), is("someLed/rgb/42"));
