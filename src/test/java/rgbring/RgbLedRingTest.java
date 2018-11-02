@@ -101,7 +101,8 @@ public class RgbLedRingTest {
 		for (int i = 0; i < ring.size(); i++) {
 			TopicAndMessage topicAndMessage = mqttClient.getTopicAndMessages().get(i);
 			assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
-			assertThat(topicAndMessage.getPayload(), is(colors[i]));
+			String color = colors[i];
+			assertThat(topicAndMessage.getPayload(), is(color));
 		}
 
 	}
