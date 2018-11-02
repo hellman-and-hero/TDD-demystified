@@ -22,9 +22,9 @@ public class RgbLedRing {
 	}
 
 	private void setLed(int level, int ledNum) {
-		boolean led = level > 100 / size() * ledNum;
+		boolean ledState = level > 100 / size() * ledNum;
 		try {
-			String payload = led ? "#ffffff" : "#000000";
+			String payload = ledState ? "#ffffff" : "#000000";
 			mqttClient.publish("someLed/rgb/" + ledNum, new MqttMessage(payload.getBytes()));
 		} catch (MqttPersistenceException e) {
 			throw new RuntimeException(e);
