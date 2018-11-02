@@ -88,7 +88,7 @@ public class RgbLedRingTest {
 	}
 
 	private void setLevel(int level) {
-		if (ledCount==4) {
+		if (leds.length==4) {
 			led1 = level > 0;
 			led2 = level > 25;
 			led3 = level > 50;
