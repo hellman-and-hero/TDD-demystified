@@ -6,15 +6,16 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 
 public class RgbLedRing {
-	
+
 	private static final int MAX_LEVEL = 100;
 	private static final String OFF = "#000000";
 	private static final String ON = "#ffffff";
+	@Deprecated
 	private IMqttClient mqttClient;
 	private DeviceAdapter deviceAdapter;
 	private int ledCount;
 
-	public RgbLedRing(int ledCount, IMqttClient mqttClient, DeviceAdapter deviceAdapter) {
+	public RgbLedRing(int ledCount, @Deprecated IMqttClient mqttClient, DeviceAdapter deviceAdapter) {
 		this.ledCount = ledCount;
 		this.mqttClient = mqttClient;
 		this.deviceAdapter = deviceAdapter;
