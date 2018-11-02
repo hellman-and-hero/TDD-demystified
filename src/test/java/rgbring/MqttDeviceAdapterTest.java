@@ -35,15 +35,11 @@ public class MqttDeviceAdapterTest {
 
 		TopicAndMessage received;
 		do {
-			received = receivingCLientHasReceived();
+			received = received;
 		} while (received == null);
 		assertThat(received.getTopic(), is("someLed/rgb/42"));
 		assertThat(received.getPayload(), is("#123456"));
 
-	}
-
-	private TopicAndMessage receivingCLientHasReceived() {
-		return received;
 	}
 
 	private void createReceiver() throws MqttException, MqttSecurityException {
