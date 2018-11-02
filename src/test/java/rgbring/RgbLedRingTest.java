@@ -92,7 +92,6 @@ public class RgbLedRingTest {
 		assertStates("#00ff00", "#00ff00", OFF, OFF, OFF, OFF);
 	}
 
-	@Ignore
 	@Test
 	public void givenRingWith6ColoredLedsShouldEnlightAllLedsWhenLevelIs100() throws Exception {
 		givenLeds(6);
