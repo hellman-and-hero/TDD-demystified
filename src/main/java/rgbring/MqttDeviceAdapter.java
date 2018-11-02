@@ -16,10 +16,6 @@ public class MqttDeviceAdapter implements DeviceAdapter {
 		this.mqttClient = mqttClient;
 	}
 
-	public void setLedState(Object rgbLedRing, int ledNum, boolean ledState) {
-		setLedColor(ledNum, ledState ? ON : OFF);
-	}
-
 	public void setLedColor(int ledNum, String colorCode) {
 		try {
 			mqttClient.publish("someLed/rgb/" + ledNum, new MqttMessage(colorCode.getBytes()));
