@@ -3,6 +3,7 @@ package rgbring;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class RgbLedRingTest {
@@ -47,6 +48,7 @@ public class RgbLedRingTest {
 	}
 
 	@Test
+	@Ignore
 	public void givenRingWith4LedsShouldEnlightLedOneAndTwoWhenLevelIsMoreThan25() {
 		setLevel(26);
 		assertStates(true, true, false, false);
