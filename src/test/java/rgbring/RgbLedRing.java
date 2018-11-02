@@ -13,7 +13,7 @@ public class RgbLedRing {
 	private IMqttClient mqttClient;
 	private int ledCount;
 
-	public RgbLedRing(int ledCount, IMqttClient mqttClient) {
+	public RgbLedRing(int ledCount, IMqttClient mqttClient, DeviceAdapter deviceAdapter) {
 		this.ledCount = ledCount;
 		this.mqttClient = mqttClient;
 	}
