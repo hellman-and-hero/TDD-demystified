@@ -61,6 +61,12 @@ public class RgbLedRingTest {
 		setLevel(51);
 		assertStates(true, true, true, false);
 	}
+	@Test
+	public void givenRingWith4LedsShouldEnlightLedOneAndTwoAndThreeAndFourWhenLevelIsMoreThan75() {
+		givenLeds(4);
+		setLevel(75);
+		assertStates(true, true, true, true);
+	}
 
 	private void assertStates(boolean state1, boolean state2, boolean state3, boolean state4) {
 		assertThat(led1, is(state1));
