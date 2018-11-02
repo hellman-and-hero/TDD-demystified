@@ -19,8 +19,8 @@ public class RgbLedRing {
 		boolean[] leds = new boolean[ledCount];
 		for (int i = 0; i < size(); i++) {
 			leds[i] = level > 100 / leds.length * i;
+			boolean led = level > 100 / leds.length * i;
 			try {
-				boolean led = leds[i];
 				String payload = led ? "#ffffff" : "#000000";
 				mqttClient.publish("someLed/rgb/" + i, new MqttMessage(payload.getBytes()));
 			} catch (MqttPersistenceException e) {
