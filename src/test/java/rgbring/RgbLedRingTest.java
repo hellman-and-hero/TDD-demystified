@@ -8,7 +8,6 @@ import org.junit.Test;
 
 public class RgbLedRingTest {
 
-	private boolean led1, led2, led3, led4;
 	private boolean[] leds = new boolean[2];
 	
 	@Test
@@ -80,14 +79,16 @@ public class RgbLedRingTest {
 	}
 
 	private void setLevel(int level) {
+		boolean led1;
+		boolean led2;
 		if (leds.length==4) {
 			led1 = level > 0;
 			leds[0] = led1;
 			led2 = level > 25;
 			leds[1] = led2;
-			led3 = level > 50;
+			boolean led3 = level > 50;
 			leds[2] = led3;
-			led4 = level > 75;
+			boolean led4 = level > 75;
 			leds[3] = led4;
 			return;
 		}
