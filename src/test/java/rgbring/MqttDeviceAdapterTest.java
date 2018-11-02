@@ -23,6 +23,7 @@ public class MqttDeviceAdapterTest {
 	@Rule
 	public Timeout timeout = Timeout.seconds(5);
 
+
 	@Test
 	public void test() throws MqttException, InterruptedException {
 		// TODO do not depend on eclipse infrastructure
@@ -33,7 +34,6 @@ public class MqttDeviceAdapterTest {
 
 		sut.setLedColor(42, "#123456");
 
-		TopicAndMessage received;
 		do {
 			// noop
 		} while (received == null);
