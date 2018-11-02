@@ -87,8 +87,8 @@ public class RgbLedRingTest {
 			leds[3] = level > 100/4*3;
 		}
 		if (leds.length == 2) {
-			leds[0] = level > 100/2*1;
-			leds[1] = level > 100/2*2;
+			leds[0] = level > 0;
+			leds[1] = level > 100/2*1;
 		}
 	}
 
