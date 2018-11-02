@@ -10,7 +10,7 @@ public class MqttDeviceAdapter implements DeviceAdapter {
 	private final IMqttClient mqttClient;
 
 	public MqttDeviceAdapter(IMqttClient mqttClient) throws Exception {
-		// TODO who call disconnect?
+		// TODO who calls disconnect?
 		mqttClient.connect();
 		this.mqttClient = mqttClient;
 	}
