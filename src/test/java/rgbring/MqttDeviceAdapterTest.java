@@ -23,7 +23,7 @@ public class MqttDeviceAdapterTest {
 	protected TopicAndMessage received;
 
 	@Test
-	public void test() throws MqttException {
+	public void test() throws MqttException, InterruptedException {
 		// TODO do not depend on eclipse infrastructure
 		IMqttClient client = new MqttClient("tcp://iot.eclipse.org", "someledclient");
 		client.connect();
