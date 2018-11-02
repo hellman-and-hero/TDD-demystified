@@ -25,7 +25,7 @@ public class RgbLedRingTest {
 
 		private String payload;
 
-		public TopicAndMessage(byte[] payload) {
+		public TopicAndMessage(String topic, byte[] payload) {
 			this.payload = new String(payload);
 		}
 
@@ -149,7 +149,7 @@ public class RgbLedRingTest {
 		}
 
 		public void publish(String topic, MqttMessage message) throws MqttException, MqttPersistenceException {
-			topicAndMessages.add(new TopicAndMessage(message.getPayload()));
+			topicAndMessages.add(new TopicAndMessage(topic, message.getPayload()));
 		}
 
 		public void messageArrivedComplete(int messageId, int qos) throws MqttException {
