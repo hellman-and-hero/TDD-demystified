@@ -11,8 +11,8 @@ public class RgbLedRing {
 	private static final String OFF = "#000000";
 	private static final String ON = "#ffffff";
 	private IMqttClient mqttClient;
-	private int ledCount;
 	private DeviceAdapter deviceAdapter;
+	private int ledCount;
 
 	public RgbLedRing(int ledCount, IMqttClient mqttClient, DeviceAdapter deviceAdapter) {
 		this.ledCount = ledCount;
