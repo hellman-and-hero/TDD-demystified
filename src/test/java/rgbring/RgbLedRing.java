@@ -7,6 +7,7 @@ import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 
 public class RgbLedRing {
 	
+	private static final int MAX_LEVEL = 100;
 	private static final String OFF = "#000000";
 	private static final String ON = "#ffffff";
 	private IMqttClient mqttClient;
@@ -19,7 +20,7 @@ public class RgbLedRing {
 
 	void setLevel(int level) {
 		for (int i = 0; i < size(); i++) {
-			boolean ledState = level > 100 / size() * i;
+			boolean ledState = level > MAX_LEVEL / size() * i;
 			setLedState(i, ledState);
 		}
 	}
