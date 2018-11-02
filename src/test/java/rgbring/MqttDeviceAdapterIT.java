@@ -19,7 +19,7 @@ import org.junit.rules.Timeout;
 
 import rgbring.IMqttClientForTest.TopicAndMessage;
 
-public class MqttDeviceAdapterTest {
+public class MqttDeviceAdapterIT {
 
 	protected TopicAndMessage received;
 
