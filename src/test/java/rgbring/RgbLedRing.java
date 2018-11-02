@@ -17,15 +17,19 @@ public class RgbLedRing {
 
 	void setLevel(int level) {
 		for (int i = 0; i < size(); i++) {
-			boolean led = level > 100 / size() * i;
-			try {
-				String payload = led ? "#ffffff" : "#000000";
-				mqttClient.publish("someLed/rgb/" + i, new MqttMessage(payload.getBytes()));
-			} catch (MqttPersistenceException e) {
-				throw new RuntimeException(e);
-			} catch (MqttException e) {
-				throw new RuntimeException(e);
-			}
+			setLed(level, i);
+		}
+	}
+
+	private void setLed(int level, int i) {
+		boolean led = level > 100 / size() * i;
+		try {
+			String payload = led ? "#ffffff" : "#000000";
+			mqttClient.publish("someLed/rgb/" + i, new MqttMessage(payload.getBytes()));
+		} catch (MqttPersistenceException e) {
+			throw new RuntimeException(e);
+		} catch (MqttException e) {
+			throw new RuntimeException(e);
 		}
 	}
 
