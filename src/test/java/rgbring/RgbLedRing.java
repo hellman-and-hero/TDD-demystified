@@ -2,7 +2,7 @@ package rgbring;
 
 public class RgbLedRing {
 	
-	private boolean[] leds;
+	private final boolean[] leds;
 
 	public RgbLedRing() {
 	}
