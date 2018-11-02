@@ -21,7 +21,9 @@ public class RgbLedRing {
 			boolean ledState = level > MAX_LEVEL / size() * i;
 			
 			if (ledCount == 6) {
-				deviceAdapter.setLedColor(i, ledState ? "#00ff00" : OFF);
+				if (i<3) {
+					deviceAdapter.setLedColor(i, ledState ? "#00ff00" : OFF);
+				}
 			} else {
 				deviceAdapter.setLedColor(i, ledState ? ON : OFF);
 			}
