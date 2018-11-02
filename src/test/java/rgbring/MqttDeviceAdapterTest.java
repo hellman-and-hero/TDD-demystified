@@ -28,14 +28,19 @@ public class MqttDeviceAdapterTest {
 	@Test
 	public void test() throws MqttException, InterruptedException {
 		// TODO do not depend on eclipse infrastructure
-		IMqttClient client = new MqttClient("tcp://iot.eclipse.org", "someledclient");
-		client.connect();
+		IMqttClient client = createMqttClient();
 		createReceiver("someLed/rgb/");
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(client);
 		sut.setLedColor(42, "#123456");
 		waitForResponse();
 		assertThat(received.getTopic(), is("someLed/rgb/42"));
 		assertThat(received.getPayload(), is("#123456"));
+	}
+
+	private IMqttClient createMqttClient() throws MqttException, MqttSecurityException {
+		IMqttClient client = new MqttClient("tcp://iot.eclipse.org", "someledclient");
+		client.connect();
+		return client;
 	}
 
 	private void waitForResponse() throws InterruptedException {
