@@ -283,7 +283,7 @@ public class RgbLedRingTest {
 				}
 			};
 //			client.publish("someLed/rgb/"+i, new MqttMessage("#fffffff".getBytes());
-			byte[] messageContent;
+			byte[] messageContent = null;
 			assertThat(messageContent, is("#ffffff".getBytes()));
 		}
 	}
