@@ -23,16 +23,22 @@ public class RgbLedRing {
 			String color = OFF;
 
 			if (ledState) {
-				if (i < ledCount / AMOUNT_OF_COLORS * 1) {
-					color = GREEN;
-				} else if (i < ledCount / AMOUNT_OF_COLORS * 2) {
-					color = YELLOW;
-				} else {
-					color = RED;
-				} 
+				color = determineColor(i); 
 			} 
 			deviceAdapter.setLedColor(i, color);
 		}
+	}
+
+	private String determineColor(int i) {
+		String color;
+		if (i < ledCount / AMOUNT_OF_COLORS * 1) {
+			color = GREEN;
+		} else if (i < ledCount / AMOUNT_OF_COLORS * 2) {
+			color = YELLOW;
+		} else {
+			color = RED;
+		}
+		return color;
 	}
 
 	public int size() {
