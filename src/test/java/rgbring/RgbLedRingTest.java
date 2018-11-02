@@ -296,19 +296,7 @@ public class RgbLedRingTest {
 
 	private void givenLeds(int ledCount) {
 		client = new IMqttClientForTest();
-		this.ring = new RgbLedRing(ledCount, client) {
-			@Override
-			void setLevel(int level) {
-				super.setLevel(level);
-				try {
-					client.publish("someLed/rgb/" + "0", new MqttMessage("#ffffff".getBytes()));
-				} catch (MqttPersistenceException e) {
-					throw new RuntimeException(e);
-				} catch (MqttException e) {
-					throw new RuntimeException(e);
-				}
-			}
-		};
+		this.ring = new RgbLedRing(ledCount, client);
 	}
 
 }
