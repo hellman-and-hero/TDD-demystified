@@ -23,9 +23,11 @@ public class RgbLedRing {
 			String color;
 
 			if (ledState) {
-				if(i < ledCount / AMOUNT_OF_COLORS) {
+				if(i < ledCount / AMOUNT_OF_COLORS * 1) {
 					color = GREEN;
-				}else {
+				} else if (i < ledCount / AMOUNT_OF_COLORS * 2)
+				
+				else {
 					color = ON;
 				}
 			} else {
