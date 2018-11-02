@@ -12,7 +12,6 @@ public class RgbLedRingTest {
 	private static final String OFF = "#000000";
 	private static final String ON = "#ffffff";
 
-
 	private RgbLedRing ring;
 	private IMqttClientForTest mqttClient = new IMqttClientForTest();
 
@@ -80,6 +79,22 @@ public class RgbLedRingTest {
 		givenLeds(4);
 		ring.setLevel(76);
 		assertStates(true, true, true, true);
+	}
+
+	@Test
+	public void givenRingWith6ColoredLedsShouldEnlightAllLedsWhenLevelIs100() throws Exception {
+		givenLeds(6);
+		ring.setLevel(100);
+		assertStates("#00ff00", "#00ff00", "#ffff00", "#ffff00", "#ff0000", "#ff0000");
+	}
+
+	private void assertStates(String... colors) {
+		for (int i = 0; i < ring.size(); i++) {
+			TopicAndMessage topicAndMessage = mqttClient.getTopicAndMessages().get(i);
+			assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
+			assertThat(topicAndMessage.getPayload(), is(colors[i]));
+		}
+
 	}
 
 	private void assertStates(boolean... states) {
