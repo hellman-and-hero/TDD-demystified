@@ -32,9 +32,6 @@ public class RgbLedRing {
 				} else if (i < ledCount / AMOUNT_OF_COLORS * 3) {
 					color = RED;
 				}
-				else {
-					color = ON;
-				}
 			} else {
 				color = OFF;
 			}
