@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class RgbLedRingTest {
 
-	private boolean[] leds;
+	private boolean[] leds = new boolean[2];
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
