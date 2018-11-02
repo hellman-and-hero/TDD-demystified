@@ -12,9 +12,28 @@ import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 import org.eclipse.paho.client.mqttv3.MqttTopic;
 
-import rgbring.RgbLedRingTest.TopicAndMessage;
+public class IMqttClientForTest implements IMqttClient {
 
-final class IMqttClientForTest implements IMqttClient {
+	public static class TopicAndMessage {
+
+		private final String topic;
+		private final String payload;
+
+		public TopicAndMessage(String topic, byte[] payload) {
+			this.topic = topic;
+			this.payload = new String(payload);
+		}
+
+		public String getPayload() {
+			return payload;
+		}
+
+		public String getTopic() {
+			return topic;
+		}
+
+	}
+	
 	public void unsubscribe(String[] topicFilters) throws MqttException {
 		// TODO Auto-generated method stub
 
@@ -25,8 +44,8 @@ final class IMqttClientForTest implements IMqttClient {
 
 	}
 
-	public IMqttToken subscribeWithResponse(String[] topicFilters, int[] qos,
-			IMqttMessageListener[] messageListeners) throws MqttException {
+	public IMqttToken subscribeWithResponse(String[] topicFilters, int[] qos, IMqttMessageListener[] messageListeners)
+			throws MqttException {
 		// TODO Auto-generated method stub
 		return null;
 	}
