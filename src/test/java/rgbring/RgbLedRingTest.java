@@ -41,10 +41,15 @@ public class RgbLedRingTest {
 	}
 
 	@Test
-	// TODO this is a test for ring with 4 leds, so find matching name for test
 	public void givenRingWith4LedsShouldEnlightLedOneWhenLevelIsLessThan26() {
 		setLevel(25);
 		assertStates(true, false, false, false);
+	}
+
+	@Test
+	public void givenRingWith4LedsShouldEnlightLedOneAndTwoWhenLevelIsMoreThan25() {
+		setLevel(26);
+		assertStates(true, true, false, false);
 	}
 
 	private void assertStates(boolean state1, boolean state2, boolean state3, boolean state4) {
