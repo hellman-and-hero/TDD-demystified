@@ -106,7 +106,9 @@ public class RgbLedRingTest {
 
 	private void assertStates(boolean... states) {
 		for (int i = 0; i < ring.size(); i++) {
-			assertColor(i, states[i] ? ON : OFF);
+			TopicAndMessage topicAndMessage = mqttClient.getTopicAndMessages().get(i);
+			assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
+			assertThat(topicAndMessage.getPayload(), is(states[i] ? ON : OFF));
 		}
 	}
 
