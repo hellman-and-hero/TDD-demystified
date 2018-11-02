@@ -1,8 +1,10 @@
 package rgbring;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -108,7 +110,11 @@ public class RgbLedRingTest {
 		for (int i = 0; i < ring.size(); i++) {
 			TopicAndMessage topicAndMessage = mqttClient.getTopicAndMessages().get(i);
 			assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
-			assertThat(topicAndMessage.getPayload(), is(states[i] ? ON : OFF));
+			if (states[i]) {
+				assertThat(topicAndMessage.getPayload(), is(not(OFF)));
+			} else {
+				assertThat(topicAndMessage.getPayload(), is(OFF));
+			}
 		}
 	}
 
