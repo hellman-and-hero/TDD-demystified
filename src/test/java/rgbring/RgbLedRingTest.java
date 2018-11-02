@@ -17,35 +17,35 @@ public class RgbLedRingTest {
 	private IMqttClientForTest mqttClient = new IMqttClientForTest();
 
 	@Test
-	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
+	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() throws Exception {
 		givenLeds(2);
 		ring.setLevel(0);
 		assertStates(false, false);
 	}
 
 	@Test
-	public void givenRingWith2LedsShouldEnlightLedOneWHenLevelMoreThanZero() {
+	public void givenRingWith2LedsShouldEnlightLedOneWHenLevelMoreThanZero() throws Exception {
 		givenLeds(2);
 		ring.setLevel(1);
 		assertStates(true, false);
 	}
 
 	@Test
-	public void givenRingWith2LedsShouldEnlightLedOneWHenLevelIsLessThan51() {
+	public void givenRingWith2LedsShouldEnlightLedOneWHenLevelIsLessThan51() throws Exception {
 		givenLeds(2);
 		ring.setLevel(50);
 		assertStates(true, false);
 	}
 
 	@Test
-	public void givenRingWith2LedsShouldEnlightLedOneAndTwoWhenLevelMoreThanFifty() {
+	public void givenRingWith2LedsShouldEnlightLedOneAndTwoWhenLevelMoreThanFifty() throws Exception {
 		givenLeds(2);
 		ring.setLevel(51);
 		assertStates(true, true);
 	}
 
 	@Test
-	public void givenRingWith2LedsShouldEnlightNoLedAfterLevelDropsToZero() {
+	public void givenRingWith2LedsShouldEnlightNoLedAfterLevelDropsToZero() throws Exception {
 		givenLeds(2);
 		ring.setLevel(51);
 		mqttClient.clearMessages();
