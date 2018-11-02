@@ -68,11 +68,15 @@ public class RgbLedRingTest {
 		assertStates(true, true, true, true);
 	}
 
-	private void assertStates(boolean state1, boolean state2, boolean state3, boolean state4) {
-		assertThat(led1, is(state1));
-		assertThat(led2, is(state2));
-		assertThat(led3, is(state3));
-		assertThat(led4, is(state4));
+	private void assertStates(boolean... states) {
+		int cnt;
+		assertThat(led1, is(states[cnt++]));
+		assertThat(led2, is(states[cnt++]));
+		assertThat(led3, is(states[cnt++]));
+		assertThat(led4, is(states[cnt++]));
+		for (int i = 0; i < leds.length; i++) {
+			assertThat(leds[i], is(states[i]));
+		}
 	}
 
 	private void assertStates(boolean state1, boolean state2) {
