@@ -19,7 +19,7 @@ public class DeviceAdapter {
 
 	public void setLedState(RgbLedRing rgbLedRing, int ledNum, boolean ledState) {
 		try {
-			String payload = ledState ? RgbLedRing.ON : RgbLedRing.OFF;
+			String payload = ledState ? ON : OFF;
 			rgbLedRing.mqttClient.publish("someLed/rgb/" + ledNum, new MqttMessage(payload.getBytes()));
 		} catch (MqttPersistenceException e) {
 			throw new RuntimeException(e);
