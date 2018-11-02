@@ -10,6 +10,7 @@ public class MqttDeviceAdapter implements DeviceAdapter {
 	private final IMqttClient mqttClient;
 
 	public MqttDeviceAdapter(IMqttClient mqttClient) {
+		mqttClient.connect();
 		this.mqttClient = mqttClient;
 	}
 
