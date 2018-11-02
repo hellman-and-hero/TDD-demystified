@@ -7,6 +7,7 @@ import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 
 public class RgbLedRing {
 	
+	private static final String ON = "#ffffff";
 	private IMqttClient mqttClient;
 	private int ledCount;
 
@@ -24,7 +25,7 @@ public class RgbLedRing {
 
 	private void setLedState(int ledNum, boolean ledState) {
 		try {
-			String payload = ledState ? "#ffffff" : "#000000";
+			String payload = ledState ? ON : "#000000";
 			mqttClient.publish("someLed/rgb/" + ledNum, new MqttMessage(payload.getBytes()));
 		} catch (MqttPersistenceException e) {
 			throw new RuntimeException(e);
