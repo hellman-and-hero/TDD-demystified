@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class RgbLedRingTest {
 
-	private boolean[] leds;
+	private RgbLedRing data = new RgbLedRing();
 
 	@Test
 	public void givenRingWith2LedsShouldEnlightNoLedWhenLevelIsZero() {
@@ -74,18 +74,18 @@ public class RgbLedRingTest {
 	}
 
 	private void assertStates(boolean... states) {
-		for (int i = 0; i < leds.length; i++) {
-			assertThat(leds[i], is(states[i]));
+		for (int i = 0; i < data.leds.length; i++) {
+			assertThat(data.leds[i], is(states[i]));
 		}
 	}
 
 	private void givenLeds(int ledCount) {
-		this.leds = new boolean[ledCount];
+		this.data.leds = new boolean[ledCount];
 	}
 
 	private void setLevel(int level) {
-		for (int i = 0; i < leds.length; i++) {
-			leds[i] = level > 100 / leds.length * i;
+		for (int i = 0; i < data.leds.length; i++) {
+			data.leds[i] = level > 100 / data.leds.length * i;
 		}
 	}
 
