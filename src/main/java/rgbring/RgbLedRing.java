@@ -25,8 +25,11 @@ public class RgbLedRing {
 				String color = i < ledCount / AMOUNT_OF_COLORS ? GREEN : OFF;
 				deviceAdapter.setLedColor(i, color);
 			} else {
-				String colorCode = ledState ? ON : OFF;
-				deviceAdapter.setLedColor(i, colorCode);
+				if (ledState) {
+					deviceAdapter.setLedColor(i, ON);
+				} else {
+					deviceAdapter.setLedColor(i, OFF);
+				}
 			}
 
 		}
