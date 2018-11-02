@@ -1,10 +1,12 @@
 package rgbring;
 
+import org.eclipse.paho.client.mqttv3.IMqttClient;
+
 public class RgbLedRing {
 	
 	private final boolean[] leds;
 
-	public RgbLedRing(int ledCount) {
+	public RgbLedRing(int ledCount, IMqttClient client) {
 		this.leds = new boolean[ledCount];
 	}
 
