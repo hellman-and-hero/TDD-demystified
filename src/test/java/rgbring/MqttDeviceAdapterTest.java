@@ -14,13 +14,18 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 import org.hamcrest.CoreMatchers;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.Timeout;
 
 import rgbring.IMqttClientForTest.TopicAndMessage;
 
 public class MqttDeviceAdapterTest {
 
 	protected TopicAndMessage received;
+	
+	@Rule
+	public Timeout timeout = Timeout.seconds(5);
 
 	@Test
 	public void test() throws MqttException, InterruptedException {
