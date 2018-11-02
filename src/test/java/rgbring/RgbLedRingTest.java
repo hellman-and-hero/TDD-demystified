@@ -99,15 +99,11 @@ public class RgbLedRingTest {
 
 	private void assertStates(String... colors) {
 		for (int i = 0; i < ring.size(); i++) {
-			assertState(i, colors);
+			TopicAndMessage topicAndMessage = mqttClient.getTopicAndMessages().get(i);
+			assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
+			assertThat(topicAndMessage.getPayload(), is(colors[i]));
 		}
 
-	}
-
-	private void assertState(int i, String... colors) {
-		TopicAndMessage topicAndMessage = mqttClient.getTopicAndMessages().get(i);
-		assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
-		assertThat(topicAndMessage.getPayload(), is(colors[i]));
 	}
 
 	private void assertStates(boolean... states) {
