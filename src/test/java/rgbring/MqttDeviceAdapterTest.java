@@ -28,9 +28,8 @@ public class MqttDeviceAdapterTest {
 	@Test
 	public void test() throws MqttException, InterruptedException {
 		// TODO do not depend on eclipse infrastructure
-		IMqttClient client = createMqttClient();
 		createReceiver("someLed/rgb/");
-		MqttDeviceAdapter sut = new MqttDeviceAdapter(client);
+		MqttDeviceAdapter sut = new MqttDeviceAdapter(createMqttClient());
 		sut.setLedColor(42, "#123456");
 		waitForResponse();
 		assertThat(received.getTopic(), is("someLed/rgb/42"));
