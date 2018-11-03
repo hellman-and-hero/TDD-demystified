@@ -88,7 +88,7 @@ public class RgbLedRingTest {
 	public void givenRingWith6ColoredLedsShouldEnlightFirstTwoLedsWhenLevelIs32() throws Exception {
 		givenLeds(6);
 		//TODO: Check edge-case 32/33
-		ring.setLevel(33);
+		ring.setLevel(32);
 		assertStates("#00ff00", "#00ff00", OFF, OFF, OFF, OFF);
 	}
 
