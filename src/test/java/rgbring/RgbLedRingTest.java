@@ -100,7 +100,7 @@ public class RgbLedRingTest {
 	}
 
 	@Test
-	public void givenRingWith5ColoredLedsShouldEnlightAllLedsWhenLevelIs100() throws Exception {
+	public void givenRingWith4ColoredLedsShouldEnlightAllLedsWhenLevelIs100() throws Exception {
 		givenLeds(4);
 		ring.setLevel(100);
 		assertStates("#00ff00",  "#ffff00", "#ffff00", "#ff0000");
