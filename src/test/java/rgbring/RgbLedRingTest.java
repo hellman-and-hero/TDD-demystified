@@ -85,7 +85,7 @@ public class RgbLedRingTest {
 	}
 
 	@Test
-	public void givenRingWith6ColoredLedsShouldEnlightFirstTwoLedsWhenLevelIs32() throws Exception {
+	public void givenRingWith6ColoredLedsShouldEnlightFirstTwoLedsWhenLevelIs33() throws Exception {
 		givenLeds(6);
 		ring.setLevel(33);
 		assertStates("#00ff00", "#00ff00", OFF, OFF, OFF, OFF);
