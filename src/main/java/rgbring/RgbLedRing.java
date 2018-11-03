@@ -25,10 +25,10 @@ public class RgbLedRing {
 		}
 	}
 
-	private String determineColor(int i) {
-		if (i < ledCount / AMOUNT_OF_COLORS * 1) {
+	private String determineColor(int led) {
+		if (led < ledCount / AMOUNT_OF_COLORS * 1) {
 			return GREEN;
-		} else if (i < ledCount / AMOUNT_OF_COLORS * 2) {
+		} else if (led < ledCount / AMOUNT_OF_COLORS * 2) {
 			return YELLOW;
 		} else {
 			return RED;
