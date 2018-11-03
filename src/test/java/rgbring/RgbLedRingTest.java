@@ -99,6 +99,13 @@ public class RgbLedRingTest {
 		assertStates("#00ff00", "#00ff00", "#ffff00", "#ffff00", "#ff0000", "#ff0000");
 	}
 
+	@Test
+	public void givenRingWith5ColoredLedsShouldEnlightAllLedsWhenLevelIs100() throws Exception {
+		givenLeds(4);
+		ring.setLevel(100);
+		assertStates("#00ff00",  "#ffff00", "#ffff00", "#ff0000");
+	}
+
 	private void assertStates(String... colors) {
 		for (int i = 0; i < ring.size(); i++) {
 			assertColor(i, colors[i]);
