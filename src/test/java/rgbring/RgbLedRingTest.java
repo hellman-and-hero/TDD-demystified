@@ -100,7 +100,7 @@ public class RgbLedRingTest {
 	}
 
 	@Test
-	@Ignore // TODO talk to PO how to handle this
+	@Ignore // TODO talk to PO how to handle this (color schema?)
 	public void givenRingWith4ColoredLedsShouldEnlightAllLedsWhenLevelIs100() throws Exception {
 		givenLeds(4);
 		ring.setLevel(100);
