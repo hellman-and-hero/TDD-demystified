@@ -20,6 +20,7 @@ public class RgbLedRing {
 	void setLevel(int level) {
 		for (int i = 0; i < size(); i++) {
 			int value = MAX_LEVEL / size() * i;
+			System.out.println(value);
 			boolean ledState = level > value;
 			String color = ledState ? determineColor(i) : OFF;
 			deviceAdapter.setLedColor(i, color);
