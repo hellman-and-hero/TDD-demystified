@@ -7,7 +7,7 @@ public class RgbLedRing {
 	private static final int AMOUNT_OF_COLORS = 3;
 	private static final String GREEN = "#00ff00";
 	private static final String OFF = "#000000";
-	private static final double MAX_LEVEL = 100;
+	private static final int MAX_LEVEL = 100;
 
 	private final int ledCount;
 	private final DeviceAdapter deviceAdapter;
@@ -19,7 +19,8 @@ public class RgbLedRing {
 
 	void setLevel(int level) {
 		for (int i = 0; i < size(); i++) {
-			boolean ledState = level > (int) (MAX_LEVEL / size() * i);
+			int value = MAX_LEVEL / size() * i;
+			boolean ledState = level > value;
 			String color = ledState ? determineColor(i) : OFF;
 			deviceAdapter.setLedColor(i, color);
 		}
