@@ -21,7 +21,7 @@ import rgbring.IMqttClientForTest.TopicAndMessage;
 
 public class MqttDeviceAdapterIT {
 
-	private static final String BROKER_HOSTNAME = "iot.eclipse.org";
+	private static final String BROKER_HOSTNAME = "192.168.188.1";
 
 	protected TopicAndMessage received;
 
@@ -30,16 +30,16 @@ public class MqttDeviceAdapterIT {
 
 	@Before
 	public void setup() throws MqttSecurityException, MqttException {
-		createReceiver4Test(BROKER_HOSTNAME, "someLed/rgb/");
+		createReceiver4Test(BROKER_HOSTNAME, "some/led/");
 	}
 
 	@Test
 	public void mqttDeviceAdapterShouldPublishToBroker() throws Exception {
 		// TODO do not depend on eclipse infrastructure
 		MqttDeviceAdapter sut = new MqttDeviceAdapter(createMqttClient(BROKER_HOSTNAME));
-		sut.setLedColor(42, "#123456");
+		sut.setLedColor(2, "#123456");
 		waitForResponse();
-		assertThat(received.getTopic(), is("someLed/rgb/42"));
+		assertThat(received.getTopic(), is("some/led/2/rgb"));
 		assertThat(received.getPayload(), is("#123456"));
 	}
 

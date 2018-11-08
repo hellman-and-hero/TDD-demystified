@@ -17,7 +17,7 @@ public class RgbLedRing {
 		this.deviceAdapter = deviceAdapter;
 	}
 
-	void setLevel(int level) {
+	public void setLevel(int level) {
 		for (int i = 0; i < size(); i++) {
 			int value = (int) (MAX_LEVEL / size() * i);
 			boolean ledState = level > value;
