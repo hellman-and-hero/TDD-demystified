@@ -21,7 +21,7 @@ import rgbring.IMqttClientForTest.TopicAndMessage;
 
 public class MqttDeviceAdapterIT {
 
-	private static final String BROKER_HOSTNAME = "192.168.188.1";
+	private static final String BROKER_HOSTNAME = "localhost";
 
 	protected TopicAndMessage received;
 

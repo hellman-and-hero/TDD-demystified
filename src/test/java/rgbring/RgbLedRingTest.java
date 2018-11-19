@@ -4,7 +4,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -116,7 +115,7 @@ public class RgbLedRingTest {
 	private void assertStates(boolean... states) {
 		for (int i = 0; i < ring.size(); i++) {
 			TopicAndMessage topicAndMessage = mqttClient.getTopicAndMessages().get(i);
-			assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
+			assertThat(topicAndMessage.getTopic(), is("some/led/" + i + "/rgb"));
 			if (states[i]) {
 				assertThat(topicAndMessage.getPayload(), is(not(OFF)));
 			} else {
@@ -127,7 +126,7 @@ public class RgbLedRingTest {
 
 	private void assertColor(int i, String color) {
 		TopicAndMessage topicAndMessage = mqttClient.getTopicAndMessages().get(i);
-		assertThat(topicAndMessage.getTopic(), is("someLed/rgb/" + i));
+		assertThat(topicAndMessage.getTopic(), is("some/led/" + i + "/rgb"));
 		assertThat(topicAndMessage.getPayload(), is(color));
 	}
 
